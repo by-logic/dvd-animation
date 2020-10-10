@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+ 
+    body {
+        transition: all .4s;
+    }
+ 
+    #dvd {
+        width: 100px;
+        position: absolute;
+    }
+ 
+    #dvd img {
+        width: 100%;
+    }
+</style>
+<script>
+    window.onload = () => {
+        let toBottom = true
+        setInterval(() => {
+            let dvd = document.getElementById('dvd')
+            let height = window.innerHeight - dvd.clientHeight
+            let width = window.innerWidth - dvd.clientWidth
+            let top = dvd.offsetTop
+            let left = dvd.offsetLeft
+            if (!toBottom && top > 0 && top < height) {
+ 
+            } else if (top >= height - 10) {
+ 
+                top -= 2
+                dvd.style.top = `${top}px`
+            } else if (top <= 0) {
+                top += 2
+                dvd.style.top = `${top}px`
+            }
+        }, 10)
+    }
+</script>
+ 
+<body>
+    <div id='dvd'>
+        <img src="dvd.png">
+    </div>
+</body>
+ 
+</html>
